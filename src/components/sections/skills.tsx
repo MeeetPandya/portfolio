@@ -1,7 +1,36 @@
 import React from 'react'
 
 export default function Skills() {
-    const technologies = ["HTML 5", "CSS", "JavaScript", "React JS", "Next JS", "Express JS", "GIT", "C++"];
+    const skillCategories = [
+    {
+      title: "Languages",
+      skills: ["C++", "JavaScript", "TypeScript", "Python"],
+    },
+    {
+      title: "Frontend",
+      skills: ["React.js", "Next.js", "Tailwind CSS", "ShadCN UI"],
+    },
+    {
+      title: "Backend",
+      skills: ["Node.js", "Express.js"],
+    },
+    {
+      title: "Databases",
+      skills: ["PostgreSQL", "MongoDB"],
+    },
+    {
+      title: "DevOps/Cloud",
+      skills: ["Docker", "GitHub Actions", "Vercel", "AWS (EC2, S3, SQS)"],
+    },
+    {
+      title: "Testing",
+      skills: ["React Testing Library", "Postman"],
+    },
+    {
+      title: "Tools",
+      skills: ["Git", "SQL", "OAuth", "JWT"],
+    },
+  ]    
  
   return (
     <div className="mb-16 scroll-mt-16 md:mb-20 lg:mb-30 lg:scroll-mt-24" >
@@ -11,16 +40,20 @@ export default function Skills() {
             </h2>
         </div>
         <div className="z-10 sm:col-span-6">
-            <ul className="mt-2 flex flex-wrap" aria-label="Skills">  
-                {technologies.map((tech,index) => (
-                    <li key={index} className="mr-1.5 mt-2">
-                    <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300 ">
-                          {tech}
-                    </div>
-                </li> 
-                ))}                    
-                
-            </ul>
+            {skillCategories.map((category,index) => (
+                <div key={index} className='space-y-0.5'>
+                    <h3 className='text-slate-500 text-xs font-semibold capitalize tracking-widest'>{category.title}:</h3>
+                    <ul className="mb-2 flex flex-wrap" aria-label="Skills">  
+                    {category.skills.map((skill,skillIndex) => (
+                        <li key={skillIndex} className="mr-1.5 mb-2">
+                            <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300 ">
+                            {skill}
+                            </div>
+                        </li> 
+                    ))}                              
+                    </ul>
+                </div>
+            ))}
         </div>
     </div>
   )
